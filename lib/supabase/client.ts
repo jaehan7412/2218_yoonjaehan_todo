@@ -5,8 +5,13 @@ export function createClient() {
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
 
   if (!supabaseUrl || !supabaseAnonKey) {
+    const missingVars = [];
+    if (!supabaseUrl) missingVars.push("NEXT_PUBLIC_SUPABASE_URL");
+    if (!supabaseAnonKey) missingVars.push("NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY");
+    
     throw new Error(
-      "Missing Supabase environment variables. Please check your .env.local file."
+      `Missing Supabase environment variables: ${missingVars.join(", ")}. ` +
+      `Please set them in Vercel Dashboard → Settings → Environment Variables and redeploy.`
     );
   }
 
