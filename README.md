@@ -20,6 +20,32 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## 환경 변수 설정
+
+### 로컬 개발 환경
+
+프로젝트 루트에 `.env.local` 파일을 생성하고 다음 환경 변수들을 설정하세요:
+
+```bash
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=your_supabase_anon_key
+OPENAI_API_KEY=your_openai_api_key
+```
+
+`.env.example` 파일을 참고하세요.
+
+### Vercel 배포 환경
+
+Vercel에 환경 변수를 설정하는 방법은 [VERCEL_ENV_SETUP.md](./VERCEL_ENV_SETUP.md) 파일을 참고하세요.
+
+**간단 요약:**
+1. Vercel Dashboard → 프로젝트 선택 → Settings → Environment Variables
+2. 다음 환경 변수들을 추가:
+   - `NEXT_PUBLIC_SUPABASE_URL`
+   - `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`
+   - `OPENAI_API_KEY`
+3. 환경 변수 추가 후 **Redeploy** 버튼 클릭
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
